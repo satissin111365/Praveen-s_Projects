@@ -1,0 +1,87 @@
+<!-- <form [formGroup]="employeeform" (ngSubmit)="onSubmit()">
+    <div class="form-Group">
+        <label for="firstname">FirstName</label>
+        <input type="text"  class="form-control" formControlName="firstName">
+         <input formControlName="firstName" [ngClass]="{'is-invalid':submitted && employeeform.controls.['firstName'].errors}"type="text" class="form-control"> -->
+
+
+    <!-- <span calss="text-danger" *ngIf="employeeform.controls['text'].dirty && employeeform.hasError('required','text')"> firstname required</span>
+    </div>
+</form> --> 
+
+
+<form  [formGroup]="formcomponent" (ngSubmit)="employeesubmitted() " class="border border-dark p-3 rounded-3">
+    <!-- [formGroup]="formcomponent" (ngSubmit)="employeesubmitted() " -->
+    <div class="row g-0">
+        <div class="col text-center p-2-mb-3 bg-light">
+            <span class="fs-3">Form</span>
+        </div>
+    </div><br>
+    <div class="row">
+        <div class="col mb-3">
+            <label for="firstname" class="form-label">FirstName</label>
+            <input type="text" class="form-control" id="firstname" formcontrolName="firstname">
+            
+
+            <div *ngIf="formcomponent.controls['firstname'].touched && formcomponent.controls ['firstname']?.['errors']">
+                 username required
+            </div>
+
+
+            <div class="form-text text-danger"
+                *ngIf="FirstName.errors?.['minlength'] && (FirstName.touched || FirstName.dirty)">
+                first name is too short
+            </div>
+            <div class="form-text text-danger"
+                *ngIf="FirstName.errors?.['patteren'] && (FirstName.dirty || FirstName.touched)">
+                First Name should start wirh alphabet
+            </div>
+            <div class="col mb-3">
+                <label for="lastname" class="form-label">LastName</label>
+                <input type="text" class="form-control" id="lastname" formcontrolName="lastname">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" formcontrolName="email">
+                <div class="form-text"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="empid" class="form-label">Empid</label>
+                <input type="empid" class="form-control" id="empid" formcontrolName="empid">
+                <div class="form-text"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col mb-3">
+                <label for="mobile" class="form-label">Mobile Number</label>
+                <input type="text" class="form-control" id="mobile">
+                <div class="form-text"></div>
+            </div>
+            <div class="col ps-3 mb-3">
+                <div class="m-1">Gender</div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" value="m" id="male">
+                    <label class="form-check-label" for="male"> Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" value="f" id="female">
+                    <label class="form-check-label " for="female">Female</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 offset-3">
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </form>
