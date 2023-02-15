@@ -28,11 +28,11 @@ export class FormComponentComponent {
   // }
   
   formcomponent= new FormGroup({
-      firstname: new FormControl("",[Validators.required,Validators.minLength(3),Validators.pattern("[a-zA-Z].*")]),
-      lastname: new FormControl(""),
-      email: new FormControl(""),
-      empid: new FormControl(""),
-      mobile: new FormControl(""),
+      firstname: new FormControl("",[Validators.required,Validators.minLength(6),Validators.pattern("[a-zA-Z].*")]),
+      lastname: new FormControl("",[Validators.required,Validators.minLength(6),Validators.pattern("[a-zA-Z].*")]),
+      email: new FormControl("",[Validators.required, Validators.email]),
+      empid: new FormControl("",[Validators.required,Validators.pattern("[0-9]*"),Validators.minLength(6),Validators.maxLength(6)]),
+      mobile: new FormControl("",[Validators.required,Validators.pattern("[0-9]*"),Validators.minLength(10),Validators.maxLength(10)]),
       gender: new FormControl("")
 
     });

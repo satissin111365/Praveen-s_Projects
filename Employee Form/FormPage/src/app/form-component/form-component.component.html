@@ -5,14 +5,14 @@
          <input formControlName="firstName" [ngClass]="{'is-invalid':submitted && employeeform.controls.['firstName'].errors}"type="text" class="form-control"> -->
 
 
-    <!-- <span calss="text-danger" *ngIf="employeeform.controls['text'].dirty && employeeform.hasError('required','text')"> firstname required</span>
+<!-- <span calss="text-danger" *ngIf="employeeform.controls['text'].dirty && employeeform.hasError('required','text')"> firstname required</span>
     </div>
-</form> --> 
+</form> -->
 
 
-<form  [formGroup]="formcomponent" (ngSubmit)="employeesubmitted() " class="border border-dark p-3 rounded-3">
-    <!-- [formGroup]="formcomponent" (ngSubmit)="employeesubmitted() " -->
-    <div class="row g-0">
+<!-- <form  [formGroup]="formcomponent" (ngSubmit)="employeesubmitted() " class="border border-dark p-3 rounded-3">
+    [formGroup]="formcomponent" (ngSubmit)="employeesubmitted() " -->
+<!-- <div class="row g-0">
         <div class="col text-center p-2-mb-3 bg-light">
             <span class="fs-3">Form</span>
         </div>
@@ -84,4 +84,117 @@
             </div>
         </div>
         </div>
-    </form>
+  </form>  -->
+<form [formGroup]="formcomponent" (ngSubmit)="employeesubmitted()" class="border border-dark p-3 rounded-3">
+    <div class="row g-0">
+        <div class="col text-center p-2-mb-3 bg-light">
+            <span class="fs-3">Form</span>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col mb-3">
+            <label for="firstname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstname" formControlName="firstname">
+            <div class="form-text text-danger"
+                *ngIf="formcomponent.controls['firstname'].touched && formcomponent.controls['firstname'].errors">
+                First name is required
+            </div>
+            <div class="form-text text-danger"
+                *ngIf="formcomponent.controls['firstname'].errors?.['minlength'] && (formcomponent.controls['firstname'].touched || formcomponent.controls['firstname'].dirty)">
+                First name is too short
+            </div>
+            <div class="form-text text-danger"
+                *ngIf="formcomponent.controls['firstname'].errors?.['pattern'] && (formcomponent.controls['firstname'].dirty || formcomponent.controls['firstname'].touched)">
+                First name should start with an alphabet
+            </div>
+        </div>
+        <div class="col mb-3">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastname" formControlName="lastname">
+            <div class="form-text text-danger"
+                *ngIf="formcomponent.controls['firstname'].touched && formcomponent.controls['firstname'].errors">
+                Last name is required
+            </div>
+            <div class="form-text text-danger"
+                *ngIf="formcomponent.controls['firstname'].errors?.['minlength'] && (formcomponent.controls['firstname'].touched || formcomponent.controls['firstname'].dirty)">
+                Last name is too short
+            </div>
+            <div class="form-text text-danger"
+                *ngIf="formcomponent.controls['firstname'].errors?.['pattern'] && (formcomponent.controls['firstname'].dirty || formcomponent.controls['firstname'].touched)">
+                Last name should start with an alphabet
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <!-- <div class="col mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" formControlName="email">
+            <div class="1form-text text-danger" *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched)">
+                Email is required
+            </div>
+            <div class="form-text text-danger" *ngIf="Email.errors?. ['email'] && (Email.dirty || Email.touched)">
+                Email is invalid
+            </div>
+        </div> -->
+        <div class="col mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" formControlName="email">
+            <div class="form-text text-danger" *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched)">
+              Email is required
+            </div>
+            <div class="form-text text-danger" *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched)">
+              Email is invalid
+            </div>
+          </div>
+          
+        <div class="row">
+            <div class="col mb-3">
+                <label for="empid" class="form-label">Employee ID</label>
+                <input type="text" class="form-control" id="empid" formControlName="empid">
+                <div class="form-text text-danger"
+                    *ngIf="Empid.errors?.['pattern']">
+                Id is required
+                </div>
+                <div class="from-text text-danger" *ngIf="Empid.errors?.['pattern']">
+                    Number is invalid
+                </div>
+                <div class="form-text text-danger"
+                *ngIf="formcomponent.controls['empid'].errors?.['minlength'] && (formcomponent.controls['empid'].touched || formcomponent.controls['empid'].dirty)">
+                Last name is too short
+            </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="mobile" class="form-label">Mobile Number</label>
+                <input type="text" class="form-control" id="mobile" formControlName="mobile">
+                <div class="form-text text-danger"
+                    *ngIf="formcomponent.controls['mobile'].invalid && (formcomponent.controls['mobile'].dirty || formcomponent.controls['mobile'].touched)">
+                    Please enter a valid mobile number
+                </div>
+                <div class="form-text text-danger"
+                *ngIf="formcomponent.controls['mobile'].errors?.['minlength'] && (formcomponent.controls['mobile'].touched || formcomponent.controls['mobile'].dirty)">
+                mobile number is too short
+            </div>
+            </div>
+
+
+
+        </div>
+        <div class="col ps-3 mb-3">
+            <div class="m-1">Gender</div>
+            <div class="form-check form-check-inline"><input type="radio" class="form-check-input" value="m" id="male"
+                    formControlName="gender"><label class="form-check-label" for="male"> Male</label></div>
+            <div class="form-check form-check-inline"><input type="radio" class="form-check-input" value="f" id="female"
+                    formControlName="gender"><label class="form-check-label " for="female">Female</label></div>
+        </div>
+        <div class="row">
+            <div class="col-6 offset-3">
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
