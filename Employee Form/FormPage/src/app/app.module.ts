@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { FormComponentComponent } from './form-component/form-component.component';
 import{ FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EmployeedetailsComponent } from './employeedetails/employeedetails.component';
+
 
 
 
@@ -14,7 +16,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    FormComponentComponent
+    FormComponentComponent,
+    EmployeedetailsComponent,
+    
   ],
   imports: [
     BrowserModule,

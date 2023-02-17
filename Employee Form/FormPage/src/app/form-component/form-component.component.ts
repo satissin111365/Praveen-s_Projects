@@ -1,31 +1,14 @@
 import { ReturnStatement } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-form-component',
   templateUrl: './form-component.component.html',
   styleUrls: ['./form-component.component.css']
 })
 export class FormComponentComponent {
-  //  employeeform!:FormGroup
-  //  submitted=false;
-  //  constructor(private formBuilder:FormBuilder){}
-  //  ngOnInit(){
-  //   //validation
-  //   this.employeeform=this.formBuilder.group({
-  //     firstName:['',Validators.required]
-  //   })
-
-  //  }
-  //  onSubmit(){
-  //   this.submitted=true
-  //   if(this.employeeform.invalid){
-  //     return
-  //   }
-  //   alert("succes");
-  //  }
-  // }
+ 
   
   formcomponent= new FormGroup({
       firstname: new FormControl("",[Validators.required,Validators.minLength(6),Validators.pattern("[a-zA-Z].*")]),
@@ -36,8 +19,15 @@ export class FormComponentComponent {
       gender: new FormControl("")
 
     });
-
+  userForm: any;
+  firstname: any;
+    setValue() {
+      this.firstname=this.userForm.get('first_name')?.value; // input value retrieved
+    }
     employeesubmitted(){
+      
+      
+ 
       console.log(this.formcomponent);
     }
     get FirstName() : FormControl{
@@ -58,11 +48,13 @@ export class FormComponentComponent {
     get Gender() : FormControl{
       return this.formcomponent.get("gender") as FormControl;
     }
+    newEmployee = { firstname: '', lastname: '', email: '', empid:'', mobile:'', gender:''  };
+  employeeList: any[] = [];
 
-  // private result: any;
+  Submit() {
+    this.employeeList.push(this.newEmployee);
+    this.newEmployee = { firstname: '', lastname: '', email: '', empid:'', mobile:'', gender:'' };
+  }
+
  
-}
-
-
-
-
+  }

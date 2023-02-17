@@ -1,3 +1,38 @@
 form{
     width: 500px;
 }
+table{
+    margin-top: 50px;
+    text-align: center;
+    background: #333;
+    color:#fff;
+}
+#show th, #show td{
+    padding:13px;
+}
+#btna td input{
+    width:100%;
+}
+.table-container {
+    position: absolute;
+    margin-top: 20px;
+    top: 0;
+    right: 0.002;
+  }
+  .form-container {
+    position: absolute;
+    
+    top: 0;
+    left: 0;
+  }
+  
+  .table-container {
+    border-collapse: collapse;
+  }
+  
+  .table-container th,
+  .table-container td {
+    border: 1px solid black;
+    padding: 8px;
+  }
+  

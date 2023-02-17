@@ -9,5 +9,6 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class AppComponent {
   title = 'FormPage';
+  // submittedEmployee: Employee;
   
 }
